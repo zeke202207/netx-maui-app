@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="netxapp.Pages.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Spacing="16" Margin="16,32">
+            <Entry Text="{Binding Username}"
+                   Placeholder="Username" />
+            <Entry Text="{Binding Password}"
+                   Placeholder="Password"
+                   IsPassword="True" />
+            <Button Margin="0,16,0,0" Text="Login"
+                    HorizontalOptions="Center"
+                    Command="{Binding ExecuteLogin}" />
+     </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="netxapp.Pages.SettingsPage"
+             Title="setting">
+    <VerticalStackLayout>
+        <Label 
+            Text="这里是设置页面"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button
+            x:Name="btnOpenNewPage"
+            Text="Logout"
+            HorizontalOptions="Center"
+            Clicked="btnOpenNewPage_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
