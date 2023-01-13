@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace netxapp.ViewModels;
 
-public class BluetoothDemoViewModel : BaseViewModel
+public class BluetoothViewModel : BaseViewModel
 {
     private ObservableCollection<BluetoothModel> bluetoothModels = new ObservableCollection<BluetoothModel>();
 
@@ -23,7 +23,7 @@ public class BluetoothDemoViewModel : BaseViewModel
         set { SetProperty(ref bluetoothModels, value); }
     }
 
-    public BluetoothDemoViewModel()
+    public BluetoothViewModel()
     {
         ExecuteScan = new Command(() => Scan());
         ExcuteConn = new Command(() => Connection(),()=>true);
@@ -32,11 +32,6 @@ public class BluetoothDemoViewModel : BaseViewModel
         {
             DeviceName = "zeke",
             DeviceAddress = "test"
-        });
-        BluetoothModels.Add(new BluetoothModel()
-        {
-            DeviceName = "zeke1",
-            DeviceAddress = "test1"
         });
     }
 
@@ -47,6 +42,13 @@ public class BluetoothDemoViewModel : BaseViewModel
 
     private void Scan()
     {
+        //FOR TEST
+        BluetoothModels.Add(new BluetoothModel()
+        {
+            DeviceName = "zeke1",
+            DeviceAddress = "test1"
+        });
+
         using (BluetoothClient client = new BluetoothClient())
         {
             var test = client.PairedDevices;

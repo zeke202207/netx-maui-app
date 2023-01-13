@@ -12,19 +12,19 @@ namespace netxapp.Services
         {
         }
 
-        public Task NavigateTo(string route)
+        public async Task NavigateTo(string route)
         {
-            return Shell.Current.GoToAsync(route);
+            await Shell.Current.GoToAsync(route);
         }
 
-        public Task GoBack()
+        public async Task GoBack()
         {
-            return Shell.Current.Navigation.PopAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
 
-        public Task GoBackModal()
+        public async Task GoBackModal()
         {
-            return Shell.Current.Navigation.PopModalAsync();
+            await Shell.Current.Navigation.PopModalAsync();
         }
     }
 }

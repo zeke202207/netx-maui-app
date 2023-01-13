@@ -38,7 +38,7 @@
     </Shell.Resources>
  -->
     <!-- Loading/Start Page -->
-    <ShellContent Route="loading" ContentTemplate="{DataTemplate page:LoadingPage}" />
+    <ShellContent Route="loading" ContentTemplate="{DataTemplate page:WelcomePage}" />
 
     <!-- Login Page -->
     <ShellContent Route="login" ContentTemplate="{DataTemplate page:LoginPage}" />
@@ -51,11 +51,12 @@
                 <ShellContent Title="zeke2" ContentTemplate="{DataTemplate page:SettingsPage}" />
             -->
         </Tab>
-        <Tab Title="setting">
+        <Tab Route="setting" Title="setting">
             <ShellContent Title="setting" ContentTemplate="{DataTemplate page:SettingsPage}"/>
         </Tab>
-        <Tab Title="demo">
-            <ShellContent Title="demo" ContentTemplate="{DataTemplate page:DemoPage}"/>
+        <Tab Route="demos" Title="demo">
+            <ShellContent Title="bluetooth" ContentTemplate="{DataTemplate page:BluetoothPage}"/>
+            <ShellContent Title="wifi" ContentTemplate="{DataTemplate page:WifiPage}"/>
         </Tab>
     </TabBar>
 </Shell>

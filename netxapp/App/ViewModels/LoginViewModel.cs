@@ -1,4 +1,5 @@
-﻿using System;
+﻿using netxapp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,12 @@ namespace netxapp.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public Action<bool, string> LoginResult;
+        private readonly IRoutingService _router;
+        public Action<string> LoginFailed;
 
-        public LoginViewModel()
+        public LoginViewModel(IRoutingService router)
         {
+            _router = router;
             ExecuteLogin = new Command(() => Login());
         }
 
@@ -24,9 +27,9 @@ namespace netxapp.ViewModels
         private void Login()
         {
             if (Username.ToLower().Equals("zeke") && Password.ToLower().Equals("123456"))
-                LoginResult?.Invoke(true, string.Empty);
+                _router.NavigateTo("//main/home");
             else
-                LoginResult?.Invoke(false, "Invalid username or password");
+                LoginFailed?.Invoke("Invalid username or password");
         }
     }
 }

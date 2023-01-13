@@ -1,8 +1,11 @@
+using netxapp.ViewModels;
+
 namespace netxapp.Pages;
 
-public partial class SettingsPage : ContentPage
+public partial class SettingsPage : BaseContentPage
 {
-	public SettingsPage()
+	public SettingsPage(SettingViewModel viewModel)
+        :base(viewModel)
 	{
 		InitializeComponent();
     }

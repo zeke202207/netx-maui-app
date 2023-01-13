@@ -10,6 +10,7 @@ namespace netxapp.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
+        string routerName = string.Empty;
         bool isBusy = false;
         string title = string.Empty;
 
@@ -23,6 +24,12 @@ namespace netxapp.ViewModels
         {
             get { return title; }
             set { SetProperty(ref title, value); }
+        }
+
+        public string RouterName
+        {
+            get { return routerName; }
+            set { SetProperty(ref routerName, value); }
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

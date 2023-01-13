@@ -1,9 +1,12 @@
 
+using netxapp.ViewModels;
+
 namespace netxapp.Pages;
 
-public partial class HomePage : ContentPage
+public partial class HomePage : BaseContentPage
 {
-    public HomePage()
+    public HomePage(HomeViewModel viewModel)
+		:base(viewModel)
 	{
 		InitializeComponent();
 		NavigatedTo += async (sender, e) =>

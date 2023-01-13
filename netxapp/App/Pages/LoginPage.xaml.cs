@@ -3,20 +3,15 @@ using System.ComponentModel.Design;
 
 namespace netxapp.Pages;
 
-public partial class LoginPage : ContentPage
+public partial class LoginPage : BaseContentPage
 {
-	public LoginPage(LoginViewModel m)
+	public LoginPage(LoginViewModel viewModel)
+		:base(viewModel)
 	{
 		InitializeComponent();
-		BindingContext = ViewModel;
-		ViewModel.LoginResult += async (bool success, string message) =>
+		viewModel.LoginFailed += async (string message) =>
 		{
-            if (success)
-                await Shell.Current.GoToAsync("//main/home");
-            else
-                await DisplayAlert("error", message, "ok");
-        };
+			await DisplayAlert("error", message, "ok");
+		};
 	}
-
-	internal LoginViewModel ViewModel { get; set; } = IPlatformApplication.Current.Services.GetRequiredService<LoginViewModel>();
 }

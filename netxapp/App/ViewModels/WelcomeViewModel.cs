@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace netxapp.ViewModels
 {
-    public class LoadingViewModel :BaseViewModel
+    public class WelcomeViewModel : BaseViewModel
     {
         private readonly IRoutingService routingService;
         private readonly IIdentityService identityService;
 
-        public LoadingViewModel(IRoutingService routingService = null, IIdentityService identityService = null)
+        public WelcomeViewModel(IRoutingService routingService = null, IIdentityService identityService = null)
         {
             this.routingService = routingService ?? IPlatformApplication.Current.Services.GetService<IRoutingService>();
             this.identityService = identityService ?? IPlatformApplication.Current.Services.GetService<IIdentityService>();
+            base.Title = "zeke test...";
         }
 
         /// <summary>
@@ -25,7 +26,7 @@ namespace netxapp.ViewModels
         {
             var isAuthenticated = await this.identityService.VerifyRegistration();
             if (isAuthenticated)
-                await this.routingService.NavigateTo("///main");
+                await this.routingService.NavigateTo("///login");
             else
                 await this.routingService.NavigateTo("///login");
         }
