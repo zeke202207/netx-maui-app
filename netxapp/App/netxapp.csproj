@@ -50,6 +50,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\ChildPage\BluetoothPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\DemoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -65,7 +71,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Pages\ChildPage\" />
+	  <PackageReference Include="InTheHand.Net.Bluetooth" Version="4.0.33.1" />
+	  <PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
 	</ItemGroup>
 
 </Project>

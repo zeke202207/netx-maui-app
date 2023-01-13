@@ -11,14 +11,13 @@ namespace netxapp.ViewModels
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
         bool isBusy = false;
+        string title = string.Empty;
 
         public bool IsBusy
         {
             get { return isBusy; }
             set { SetProperty(ref isBusy, value); }
         }
-
-        string title = string.Empty;
 
         public string Title
         {

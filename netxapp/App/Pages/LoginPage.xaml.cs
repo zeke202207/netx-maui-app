@@ -5,7 +5,7 @@ namespace netxapp.Pages;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
+	public LoginPage(LoginViewModel m)
 	{
 		InitializeComponent();
 		BindingContext = ViewModel;

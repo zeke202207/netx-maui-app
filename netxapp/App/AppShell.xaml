@@ -7,7 +7,7 @@
     xmlns:page ="clr-namespace:netxapp.Pages"
     Shell.FlyoutBehavior="Disabled">
     
-    <!-- Styles and Resources -->
+    <!-- Styles and Resources
     <Shell.Resources>
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -36,7 +36,7 @@
                    BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
-
+ -->
     <!-- Loading/Start Page -->
     <ShellContent Route="loading" ContentTemplate="{DataTemplate page:LoadingPage}" />
 
@@ -53,6 +53,9 @@
         </Tab>
         <Tab Title="setting">
             <ShellContent Title="setting" ContentTemplate="{DataTemplate page:SettingsPage}"/>
+        </Tab>
+        <Tab Title="demo">
+            <ShellContent Title="demo" ContentTemplate="{DataTemplate page:DemoPage}"/>
         </Tab>
     </TabBar>
 </Shell>

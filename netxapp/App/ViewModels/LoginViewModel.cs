@@ -16,8 +16,8 @@ namespace netxapp.ViewModels
             ExecuteLogin = new Command(() => Login());
         }
 
-        public string Username { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public string Username { get; set; } = "zeke";
+        public string Password { get; set; } = "123456";
 
         public ICommand ExecuteLogin { get; set; }
 
