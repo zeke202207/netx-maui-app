@@ -50,13 +50,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\BusyIndicator\SpinnerPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Menus\DemoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Menus\Demos\BluetoothPage.xaml">
+	  <MauiXaml Update="Pages\Menus\Demos\ApiRequestView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Menus\Demos\WifiPage.xaml">
+	  <MauiXaml Update="Pages\Menus\Demos\BluetoothView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Menus\Demos\DetailNavigatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Menus\Demos\WifiView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Menus\HomePage.xaml">
@@ -74,11 +83,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="InTheHand.Net.Bluetooth" Version="4.0.33.1" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
+	  <PackageReference Include="InTheHand.BluetoothLE" Version="4.0.27" />
 	  <PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
+	  <PackageReference Include="Sharpnado.Tabs.Maui" Version="3.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\Menus\Demos\ApiRequestView.xaml.cs">
+	    <DependentUpon>ApiRequestView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Menus\Demos\BluetoothView.xaml.cs">
+	    <DependentUpon>BluetoothView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Menus\Demos\WifiView.xaml.cs">
+	    <DependentUpon>WifiView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\WelcomePage.xaml.cs">
 	    <DependentUpon>WelcomePage.xaml</DependentUpon>
 	  </Compile>

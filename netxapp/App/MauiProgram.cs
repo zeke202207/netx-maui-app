@@ -1,7 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.DependencyInjection;
 using netxapp.Pages;
 using netxapp.Services;
 using netxapp.ViewModels;
+using netxapp.ViewModels.MenusViewModel.Demos;
+using Sharpnado.Tabs;
 
 namespace netxapp;
 
@@ -12,6 +15,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
+            .UseSharpnadoTabs(false)
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -24,15 +29,17 @@ public static class MauiProgram
 
 	public static IServiceCollection AddNetxPageViewModelService(this IServiceCollection services)
     {
-        services.AddPageViewModelService<WelcomePage, WelcomeViewModel>();
-        services.AddPageViewModelService<LoginPage, LoginViewModel>();
+        services.AddContentPageViewModelService<WelcomePage, WelcomeViewModel>();
+        services.AddContentPageViewModelService<LoginPage, LoginViewModel>();
 
-        services.AddPageViewModelService<HomePage, HomeViewModel>();
-        services.AddPageViewModelService<SettingsPage, SettingViewModel>();
+        services.AddContentPageViewModelService<HomePage, HomeViewModel>();
+        services.AddContentPageViewModelService<SettingsPage, SettingViewModel>();
 
-        services.AddPageViewModelService<DemoPage, DemoViewModel>();
-        services.AddPageViewModelService<BluetoothPage, BluetoothViewModel>();
-        services.AddPageViewModelService<WifiPage, WifiViewModel>();
+        services.AddContentPageViewModelService<DemoPage, DemoViewModel>();
+        services.AddContentViewViewModelService<BluetoothView, BluetoothViewModel>();
+        services.AddContentViewViewModelService<WifiView, WifiViewModel>();        
+        services.AddContentViewViewModelService<ApiRequestView, ApiRequestViewModel>();
+        services.AddContentPageViewModelService<DetailNavigatePage, DetailNavigateViewModel>();
 
         return services;
     }

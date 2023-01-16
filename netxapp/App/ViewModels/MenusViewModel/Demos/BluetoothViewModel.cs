@@ -1,15 +1,15 @@
-﻿using InTheHand.Net.Bluetooth;
-using InTheHand.Net.Sockets;
-using System;
-using System.Collections.Generic;
+﻿using InTheHand.Bluetooth;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace netxapp.ViewModels;
 
+/*
+ *  参考： 
+ *  https://inthehand.com/2022/12/01/12-days-of-bluetooth-1-introduction/
+ *  https://segmentfault.com/a/1190000042518175
+ *  https://github.com/BlazorComponent/MASA.Blazor/tree/main/src/Masa.Blazor.Maui.Plugin/Masa.Blazor.Maui.Plugin.Bluetooth
+ */
 public class BluetoothViewModel : BaseViewModel
 {
     private ObservableCollection<BluetoothModel> bluetoothModels = new ObservableCollection<BluetoothModel>();
@@ -26,7 +26,7 @@ public class BluetoothViewModel : BaseViewModel
     public BluetoothViewModel()
     {
         ExecuteScan = new Command(() => Scan());
-        ExcuteConn = new Command(() => Connection(),()=>true);
+        ExcuteConn = new Command(() => Connection(), () => true);
         BluetoothModels = new ObservableCollection<BluetoothModel>();
         BluetoothModels.Add(new BluetoothModel()
         {
@@ -37,10 +37,10 @@ public class BluetoothViewModel : BaseViewModel
 
     private void Connection()
     {
-        
+
     }
 
-    private void Scan()
+    private async Task Scan()
     {
         //FOR TEST
         BluetoothModels.Add(new BluetoothModel()
@@ -48,7 +48,24 @@ public class BluetoothViewModel : BaseViewModel
             DeviceName = "zeke1",
             DeviceAddress = "test1"
         });
+        var allDevices = await Bluetooth.ScanForDevicesAsync();
+        foreach (var device in allDevices)
+        {
+            BluetoothModels.Add(new BluetoothModel()
+            {
+                 DeviceName = device.Name,
+                 DeviceAddress = device.Gatt.ToString()
+            });
+        }
 
+        //RequestDeviceOptions options = new RequestDeviceOptions();
+        //options.AcceptAllDevices = true;
+        //BluetoothDevice device = await Bluetooth.RequestDeviceAsync(options);
+        //if (device != null)
+        //{
+        //    await device.Gatt.ConnectAsync();
+        //}
+        /*
         using (BluetoothClient client = new BluetoothClient())
         {
             var test = client.PairedDevices;
@@ -59,8 +76,8 @@ public class BluetoothViewModel : BaseViewModel
             {
                 BluetoothModels.Add(new BluetoothModel()
                 {
-                     DeviceName = dev.DeviceName,
-                     DeviceAddress = dev.DeviceAddress.ToString(),
+                    DeviceName = dev.DeviceName,
+                    DeviceAddress = dev.DeviceAddress.ToString(),
                 });
 
                 //if (dev.DeviceName.Contains("PREFIX"))
@@ -78,6 +95,7 @@ public class BluetoothViewModel : BaseViewModel
             //sw.WriteLine("Hello world!\r\n\r\n");
             //sw.Close();
         }
+        */
     }
 }
 
@@ -87,4 +105,3 @@ public class BluetoothModel
     public string DeviceAddress { get; set; }
     public bool IsChecked { get; set; } = false;
 }
-

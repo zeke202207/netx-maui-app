@@ -1,4 +1,6 @@
-﻿using System;
+﻿using netxapp.Contracts;
+using netxapp.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +12,28 @@ namespace netxapp.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// 用户登录会话信息
+        /// </summary>
+        protected ISession Session
+        {
+            get
+            {
+                return Personal.Instance.Session;
+            }
+        }
+
+        /// <summary>
+        /// 用户个人信息
+        /// </summary>
+        protected User User
+        {
+            get
+            {
+                return Personal.Instance.User;
+            }
+        }
+
         string routerName = string.Empty;
         bool isBusy = false;
         string title = string.Empty;

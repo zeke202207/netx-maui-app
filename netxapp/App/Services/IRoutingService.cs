@@ -8,8 +8,16 @@ namespace netxapp.Services
 {
     public interface IRoutingService
     {
-        Task GoBack();
-        Task GoBackModal();
         Task NavigateTo(string route);
+
+        Task NavigationPushAsync(Page page);
+        Task NavigationPushAsync(Page page, bool animated);
+        Task NavigationPushModalAsync(Page page); 
+        Task NavigationPushModalAsync(Page page, bool animated);
+
+        Task NavigationPopAsync(); 
+        Task NavigationPopAsync(bool animated);
+        Task NavigationPopModalAsync();
+        Task NavigationPopModalAsync(bool animated);
     }
 }

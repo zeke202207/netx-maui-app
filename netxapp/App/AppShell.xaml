@@ -55,8 +55,11 @@
             <ShellContent Title="setting" ContentTemplate="{DataTemplate page:SettingsPage}"/>
         </Tab>
         <Tab Route="demos" Title="demo">
+            <!-- 
             <ShellContent Title="bluetooth" ContentTemplate="{DataTemplate page:BluetoothPage}"/>
             <ShellContent Title="wifi" ContentTemplate="{DataTemplate page:WifiPage}"/>
+            -->
+            <ShellContent Title="apirequest" ContentTemplate="{DataTemplate page:DemoPage}"/>
         </Tab>
     </TabBar>
 </Shell>

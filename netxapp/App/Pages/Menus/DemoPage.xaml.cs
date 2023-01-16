@@ -13,5 +13,6 @@ public partial class DemoPage : BaseContentPage
 	{
         _router = router;
         InitializeComponent();
-	}
+        this.Loaded += (s,e)=> this.TabHostBadge.SelectedIndex = 0;
+    }
 }

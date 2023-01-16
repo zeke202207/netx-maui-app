@@ -12,6 +12,6 @@ public partial class LoginPage : BaseContentPage
 		viewModel.LoginFailed += async (string message) =>
 		{
 			await DisplayAlert("error", message, "ok");
-		};
+		};		
 	}
 }

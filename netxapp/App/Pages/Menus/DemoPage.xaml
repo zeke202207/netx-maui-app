@@ -2,12 +2,102 @@
 <pages:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:netxapp.Pages"
+             xmlns:tabs="http://sharpnado.com"
+             xmlns:views="clr-namespace:netxapp.Pages"
              x:Class="netxapp.Pages.DemoPage"
-             Title="DemoPage">
+             Title="DemoPage" >
     <VerticalStackLayout>
-        <Label 
-            Text="netx app demos"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <tabs:TabHostView 
+            x:Name="TabHostBadge"
+            Grid.Row="1"
+            Margin="0"
+            BackgroundColor="{StaticResource Gray900}"
+            Orientation="Horizontal"
+            WidthRequest="550"
+            HeightRequest="60"
+            CornerRadius="30"
+            IsSegmented="True"
+            SegmentedOutlineColor="{StaticResource Gray950}"
+            SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+            TabType="Fixed">
+            <tabs:TabHostView.Shadow>
+                <Shadow Brush="{StaticResource Primary}"
+                            Opacity="0.7"
+                            Radius="30"
+                            Offset="0,10" />
+            </tabs:TabHostView.Shadow>
+            <tabs:MaterialUnderlinedTabItem
+                IconImageSource="list_96.png"
+                IconOptions="TextOnly"
+                IconTextSpacing="5"
+                Label="api request"
+                SelectedTabColor="{StaticResource Primary}"
+                UnselectedLabelColor="{StaticResource White}" 
+                IsSelected="True">
+                <!--
+                 IconOptions="TopIcon"
+                <tabs:TabItem.Badge>
+                    <tabs:BadgeView BackgroundColor="{StaticResource Blue100Accent}" Text="new" />
+                </tabs:TabItem.Badge>
+                -->
+            </tabs:MaterialUnderlinedTabItem>
+            <tabs:UnderlinedTabItem
+                Label="bluetooth"
+                SelectedTabColor="{StaticResource Primary}"
+                UnselectedLabelColor="{StaticResource White}">
+                <!--IconOptions="IconOnly" tabs属性-->
+                <!--
+                <tabs:TabItem.Badge>
+                    <tabs:BadgeView BackgroundColor="{StaticResource Tertiary}" Text="warning" />
+                </tabs:TabItem.Badge>
+                -->
+            </tabs:UnderlinedTabItem>
+            <tabs:BottomTabItem
+                IconImageSource="grid_view_96.png"
+                Label="wifi"
+                SelectedTabColor="{StaticResource Primary}"
+                UnselectedLabelColor="{StaticResource White}">
+                <!--
+                <tabs:TabItem.Badge>
+                    <tabs:BadgeView BackgroundColor="{StaticResource Tertiary}" ShowIndicator="True" />
+                </tabs:TabItem.Badge>
+                -->
+            </tabs:BottomTabItem>
+            <tabs:MaterialUnderlinedTabItem
+                Padding="10,0"
+                IconImageSource="house_96.png"
+                IconOptions="TextOnly"
+                Label="Sample"
+                SelectedTabColor="{StaticResource Primary}"
+                UnselectedLabelColor="{StaticResource White}">
+                <!--
+                <tabs:TabItem.Badge>
+                    <tabs:BadgeView BackgroundColor="{StaticResource Tertiary}" Text="2" />
+                </tabs:TabItem.Badge>
+                -->
+            </tabs:MaterialUnderlinedTabItem>
+        </tabs:TabHostView>
+
+        <tabs:ViewSwitcher
+            x:Name="Switcher"
+            Grid.Row="2"
+            Margin="16,0"
+            VerticalOptions="Center"
+            Animate="True"
+            SelectedIndex="-1"
+            >
+            <tabs:DelayedView x:TypeArguments="views:ApiRequestView"
+                              AccentColor="{StaticResource Primary}"
+                              Animate="True"
+                              UseActivityIndicator="True"/>
+            <tabs:DelayedView x:TypeArguments="views:BluetoothView"
+                              AccentColor="{StaticResource Primary}"
+                              Animate="True"
+                              UseActivityIndicator="True" />
+            <tabs:DelayedView x:TypeArguments="views:WifiView"
+                              AccentColor="{StaticResource Primary}"
+                              Animate="True"
+                              UseActivityIndicator="True" />
+        </tabs:ViewSwitcher>
     </VerticalStackLayout>
 </pages:BaseContentPage>

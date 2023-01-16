@@ -3,15 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:netxapp.Pages"
              x:Class="netxapp.Pages.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout Spacing="16" Margin="16,32">
-            <Entry Text="{Binding Username}"
-                   Placeholder="Username" />
-            <Entry Text="{Binding Password}"
-                   Placeholder="Password"
-                   IsPassword="True" />
-            <Button Margin="0,16,0,0" Text="Login"
-                    HorizontalOptions="Center"
-                    Command="{Binding ExecuteLogin}" />
-     </VerticalStackLayout>
+             Title="{Binding Title}">
+    <VerticalStackLayout WidthRequest="500" Margin="100" Spacing="16">
+        <Label Text="Welcome!" HorizontalTextAlignment="Center" FontSize="25"/>
+        <Entry Text="{Binding Username}" Placeholder="User Name"/>
+        <Entry Text="{Binding Password}" IsPassword="True" Placeholder="Password"/>
+        <Button Text="Login" HorizontalOptions="Center" Command="{Binding ExecuteLogin}" />
+    </VerticalStackLayout>
 </pages:BaseContentPage>
