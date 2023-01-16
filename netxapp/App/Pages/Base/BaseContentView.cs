@@ -9,7 +9,7 @@ public abstract class BaseContentView : ContentView
 {
     private BaseViewModel _baseViewModel;
     private SpinnerPopup _popup;
-    private Page _page;
+    protected Page _page;
 
     public BaseContentView()
     {

@@ -15,7 +15,7 @@ namespace netxapp.Services
 
         public async Task<bool> VerifyRegistration()
         {
-            await Task.Delay(2 * 1000);
+            await Task.Delay(1 * 1000);
             return true;
         }
     }

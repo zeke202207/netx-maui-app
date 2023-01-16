@@ -6,7 +6,30 @@
              xmlns:views="clr-namespace:netxapp.Pages"
              x:Class="netxapp.Pages.DemoPage"
              Title="DemoPage" >
+    
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Exit"/>
+        </MenuBarItem>
+        <MenuBarItem Text="Locations">
+            <MenuFlyoutSubItem Text="Change Location">
+                <MenuFlyoutItem Text="Redmond, USA"/>
+                <MenuFlyoutItem Text="London, UK" />
+                <MenuFlyoutItem Text="Berlin, DE"/>
+            </MenuFlyoutSubItem>
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Add Location"/>
+            <MenuFlyoutItem Text="Edit Location" />
+            <MenuFlyoutItem Text="Remove Location"/>
+        </MenuBarItem>
+        <MenuBarItem Text="View">
+            <MenuFlyoutItem Text="Refresh" />
+            <MenuFlyoutItem Text="Change Theme"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    
     <VerticalStackLayout>
+        
         <tabs:TabHostView 
             x:Name="TabHostBadge"
             Grid.Row="1"
@@ -95,6 +118,10 @@
                               Animate="True"
                               UseActivityIndicator="True" />
             <tabs:DelayedView x:TypeArguments="views:WifiView"
+                              AccentColor="{StaticResource Primary}"
+                              Animate="True"
+                              UseActivityIndicator="True" />
+            <tabs:DelayedView x:TypeArguments="views:AllControlsView"
                               AccentColor="{StaticResource Primary}"
                               Animate="True"
                               UseActivityIndicator="True" />

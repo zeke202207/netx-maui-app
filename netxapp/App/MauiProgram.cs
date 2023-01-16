@@ -39,6 +39,7 @@ public static class MauiProgram
         services.AddContentViewViewModelService<BluetoothView, BluetoothViewModel>();
         services.AddContentViewViewModelService<WifiView, WifiViewModel>();        
         services.AddContentViewViewModelService<ApiRequestView, ApiRequestViewModel>();
+        services.AddContentViewViewModelService<AllControlsView, AllControlsViewModel>();
         services.AddContentPageViewModelService<DetailNavigatePage, DetailNavigateViewModel>();
 
         return services;

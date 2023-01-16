@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:BaseContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="netxapp.Pages.AllControlsView"
+             xmlns:pages="clr-namespace:netxapp.Pages">
+    <ScrollView MaximumHeightRequest="500">
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="170"></RowDefinition>
+                <RowDefinition Height="300"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="260"></RowDefinition>
+                <RowDefinition Height="260"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- 1 -->
+            <Label Grid.Row="0" Grid.Column="0" Text="Border" HorizontalOptions="Start" />
+            <Border 
+            Grid.Row="0" 
+            Grid.Column="1"
+            StrokeThickness="4"
+            StrokeShape="RoundRectangle 40,0,0,40"
+            Background="#2B0B98"
+            Padding="16,8"
+            HorizontalOptions="Start">
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Orange"
+                        Offset="0.1" />
+                        <GradientStop Color="Brown"
+                        Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Label 
+            Text=".NET MAUI"
+            TextColor="White"
+            FontSize="18"
+            FontAttributes="Bold" />
+            </Border>
+            <!-- 2 -->
+            <Label Grid.Row="1" Grid.Column="0" Text="BoxView" HorizontalOptions="Start" />
+            <BoxView 
+            Grid.Row="1" 
+            Grid.Column="1"
+            Color="CornflowerBlue"
+            CornerRadius="10"
+            WidthRequest="160"
+            HeightRequest="160"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"/>
+            <!-- 3 -->
+            <Label Grid.RowSpan="2" Grid.Row="2" Grid.Column="0" Text="Frame" HorizontalOptions="Start"/>
+            <Frame 
+            Grid.Row="2" 
+            Grid.Column="1" 
+            WidthRequest="500"
+            HeightRequest="300"
+            BorderColor="Gray"
+            CornerRadius="5"
+            Padding="8"
+            HorizontalOptions="Start"
+            VerticalOptions="Start">
+                <StackLayout>
+                    <Label Text="Card Example"
+                       FontSize="14"
+                       FontAttributes="Bold" />
+                    <BoxView 
+                    Color="Gray"
+                    HeightRequest="2"
+                    HorizontalOptions="Fill" />
+                    <Label Text="Frames can wrap more complex layouts to create more complex UI components, such as this card!"/>
+                </StackLayout>
+            </Frame>
+            <Frame 
+            Grid.Row="3" 
+            Grid.Column="1" 
+            Margin="10"
+            BorderColor="Black"
+            CornerRadius="50"
+            HeightRequest="60"
+            WidthRequest="60"
+            IsClippedToBounds="True"
+            HorizontalOptions="Start"
+            VerticalOptions="Center">
+                <Image
+                       Aspect="AspectFill"
+                       Margin="-20"
+                       HeightRequest="100"
+                       WidthRequest="100" 
+                       Source="http://www.liuping.org.cn:8888/images/2020/03/09/timg2.jpg"/>
+            </Frame>
+            <!-- 4 -->
+            <Label Grid.Row="4" Grid.Column="0" Text="Image" HorizontalOptions="Start" />
+            <Image Grid.Row="4" Grid.Column="1" Source="http://www.liuping.org.cn:8888/images/2020/03/09/timg2.jpg" HorizontalOptions="Start" />
+            <!-- 5 -->
+            <Label Grid.Row="5" Grid.Column="0" Text="Web View" HorizontalOptions="Start" />
+            <WebView 
+                Grid.Row="5"
+                Grid.Column="1"
+                HorizontalOptions="Start"
+                Source="http://www.cn.bing.com"/>
+            <!-- 6 -->
+            <Label Grid.Row="6" Grid.Column="0" Text="Button" HorizontalOptions="Start" />
+            <HorizontalStackLayout Grid.Row="6" Grid.Column="1" HorizontalOptions="Start">
+                <Button Text="A" WidthRequest="50" HeightRequest="50"/>
+                <ImageButton  WidthRequest="50" HeightRequest="50" Source="http://www.liuping.org.cn:8888/images/2020/03/09/timg2.jpg" />
+                <StackLayout>
+                    <Label Text="What's your favorite animal?" />
+                    <RadioButton>
+                        <RadioButton.Content>
+                            <Image Source="cat.png" />
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton>
+                        <RadioButton.Content>
+                            <Image Source="dog.png" />
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+            </HorizontalStackLayout>
+            <!-- 7 -->
+            <Label Grid.Row="7" Grid.Column="0" Text="Search Bar" HorizontalOptions="Start" />
+            <SearchBar Grid.Row="7" Grid.Column="1"  HorizontalOptions="Start" HeightRequest="50" Placeholder="search ..." 
+                       x:Name="searchBar"
+                       SearchCommand="{Binding ExecuteSearch}"
+                       SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+            <!-- 8 -->
+            <Label Grid.Row="8" Grid.Column="0" Text="Swipe View" HorizontalOptions="Start" />
+            <SwipeView Grid.Row="8" Grid.Column="1" HorizontalOptions="Start">
+                <SwipeView.LeftItems>
+                    <SwipeItems>
+                        <SwipeItem 
+                            Text="Favorite"
+                            IconImageSource="favorite.png"
+                            BackgroundColor="LightGreen"
+                             />
+                        <!-- Invoked="OnFavoriteSwipeItemInvoked" -->
+                        <SwipeItem 
+                            Text="Delete"
+                            IconImageSource="delete.png"
+                            BackgroundColor="LightPink" />
+                    </SwipeItems>
+                </SwipeView.LeftItems>
+                <!-- Content -->
+                <Grid HeightRequest="60"
+                      WidthRequest="300"
+                      BackgroundColor="LightGray">
+                    <Label 
+                        Text="Swipe right"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+                </Grid>
+            </SwipeView>
+            <!-- 9 -->
+            <Label Grid.Row="9" Grid.Column="0" Text="Checkbox" HorizontalOptions="Start" />
+            <VerticalStackLayout Grid.Row="9" Grid.Column="1">
+                <CheckBox x:Name="checkBox" />
+                <Label Text="Lorem ipsum dolor sit amet, elit rutrum, enim hendrerit augue vitae praesent sed non, lorem aenean quis praesent pede.">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                         Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                         Value="true">
+                            <Setter 
+                                Property="FontAttributes"
+                                Value="Italic, Bold" />
+                            <Setter 
+                                Property="FontSize"
+                                Value="18" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </VerticalStackLayout>
+            <!-- 10 -->
+            <Label Grid.Row="10" Grid.Column="0" Text="Date Time Picker" HorizontalOptions="Start" />
+            <StackLayout Grid.Row="10" Grid.Column="1">
+                <DatePicker  
+                    MinimumDate="01/01/2022"
+                    MaximumDate="1/3/2022"
+                    Date="1/2/2022" />
+                <TimePicker Time="16:07:50"/>
+            </StackLayout>
+            <!-- 11 -->
+            <Label Grid.Row="11" Grid.Column="0" Text="Slider Stepper Switch " HorizontalOptions="Start" />
+            <StackLayout  Grid.Row="11" Grid.Column="1">
+                <Slider Maximum="100" WidthRequest="200" HorizontalOptions="Start"/>
+                <Stepper Maximum="100" Increment="5" HorizontalOptions="Start"/>
+                <Switch IsToggled="True" >
+                    <!--  宕机
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="On">
+                                <VisualState.Setters>
+                                    <Setter 
+                                        Property="ThumbColor"
+                                        Value="MediumSpringGreen" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Off">
+                                <VisualState.Setters>
+                                    <Setter 
+                                        Property="ThumbColor"
+                                        Value="Red" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    -->
+                </Switch>
+            </StackLayout>
+            <!-- 12 -->
+            <Label Grid.Row="12" Grid.Column="0" Text="Edit" HorizontalOptions="Start" />
+            <StackLayout Grid.Row="12" Grid.Column="1">
+                <Editor x:Name="editor"
+                        Placeholder="Enter here"
+                        HeightRequest="100"
+                        WidthRequest="200"
+                        HorizontalOptions="Start"
+                        MaxLength="20"
+                        AutoSize="TextChanges"/>
+                <Entry Text=".NET MAUI"
+                       ClearButtonVisibility="WhileEditing" />
+                <ActivityIndicator 
+                    IsRunning="true"
+                    Color="Orange" />
+                <ProgressBar 
+                    Progress="0.5"
+                    ProgressColor="Orange" />
+            </StackLayout>
+            <!-- 13 -->
+            <Label Grid.Row="13" Grid.Column="0" Text="CarouselView " HorizontalOptions="Start" />
+            <StackLayout Grid.Row="13" Grid.Column="1" HorizontalOptions="Start">
+                <Label Text="CarouselView CollectionView IndicatorView ListView Picker TableView"/>
+                <Picker x:Name="picker"
+                        Title="Picker demo">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Baboon</x:String>
+                            <x:String>Capuchin Monkey</x:String>
+                            <x:String>Blue Monkey</x:String>
+                            <x:String>Squirrel Monkey</x:String>
+                            <x:String>Golden Lion Tamarin</x:String>
+                            <x:String>Howler Monkey</x:String>
+                            <x:String>Japanese Macaque</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+            <!-- 14 -->
+            <Label Grid.Row="14" Grid.Column="0" Text="CarouselView " HorizontalOptions="Start" />
+            <StackLayout Grid.Row="14" Grid.Column="1">
+                <Button Text="popu" Clicked="Button_Clicked"/>
+            </StackLayout>
+            <!-- 15 -->
+            <Label Grid.Row="15" Grid.Column="0" Text="context menu " HorizontalOptions="Start" />
+            <Label Grid.Row="15" Grid.Column="1" x:Name="label"
+                   Text="Right-click to choose color">
+                <FlyoutBase.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Black"/>
+                        <MenuFlyoutSubItem Text="Light">
+                            <MenuFlyoutItem Text="Blue"/>
+                            <MenuFlyoutItem Text="Coral"/>
+                            <MenuFlyoutItem Text="Cyan"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSubItem Text="Dark">
+                            <MenuFlyoutItem Text="Blue"/>
+                            <MenuFlyoutItem Text="Cyan"/>
+                            <MenuFlyoutItem Text="Magenta" />
+                        </MenuFlyoutSubItem>
+                    </MenuFlyout>
+                </FlyoutBase.ContextFlyout>
+            </Label>
+            <!-- 16 -->
+            <Label Grid.Row="15" Grid.Column="0" Text="more " HorizontalOptions="Start" />
+            <StackLayout>
+                <Label Text="need learn more"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</pages:BaseContentView>
