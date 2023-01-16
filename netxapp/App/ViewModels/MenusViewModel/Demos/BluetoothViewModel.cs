@@ -16,6 +16,7 @@ public class BluetoothViewModel : BaseViewModel
 
     public ICommand ExecuteScan { get; set; }
     public ICommand ExcuteConn { get; set; }
+    public Action<int> ScanResult;
 
     public ObservableCollection<BluetoothModel> BluetoothModels
     {
@@ -42,21 +43,27 @@ public class BluetoothViewModel : BaseViewModel
 
     private async Task Scan()
     {
+        IsBusy = true;
+        BluetoothModels.Clear();
         //FOR TEST
         BluetoothModels.Add(new BluetoothModel()
         {
             DeviceName = "zeke1",
             DeviceAddress = "test1"
         });
-        var allDevices = await Bluetooth.ScanForDevicesAsync();
+        //var allDevices = await Bluetooth.ScanForDevicesAsync();
+        var allDevices = await Bluetooth.GetPairedDevicesAsync();
+        ScanResult?.Invoke(allDevices?.Count ?? 0);
         foreach (var device in allDevices)
         {
             BluetoothModels.Add(new BluetoothModel()
             {
                  DeviceName = device.Name,
-                 DeviceAddress = device.Gatt.ToString()
+                 DeviceAddress = device.Id,
+                 IsConnected = device.Gatt.IsConnected
             });
         }
+        IsBusy= false;
 
         //RequestDeviceOptions options = new RequestDeviceOptions();
         //options.AcceptAllDevices = true;
@@ -103,5 +110,6 @@ public class BluetoothModel
 {
     public string DeviceName { get; set; }
     public string DeviceAddress { get; set; }
+    public bool IsConnected { get; set; }
     public bool IsChecked { get; set; } = false;
 }

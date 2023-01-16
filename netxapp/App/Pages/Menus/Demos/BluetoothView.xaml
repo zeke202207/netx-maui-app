@@ -20,18 +20,23 @@
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
                             <CheckBox 
                                 Grid.Column="0"
                                 IsChecked="{Binding IsChecked}" />
-                            <Label
+                            <Switch 
                                 Grid.Column="1"
+                                IsToggled="{Binding IsConnected}"
+                                />
+                            <Label
+                                Grid.Column="2"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Start"
                                 Text="{Binding DeviceName}"/>
                             <Label 
-                                Grid.Column="2"
+                                Grid.Column="3"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Start"
                                 Text="{Binding DeviceAddress}"/>

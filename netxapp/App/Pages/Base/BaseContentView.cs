@@ -43,6 +43,11 @@ public abstract class BaseContentView : ContentView
         OnPropertyChanged(sender, e);
     }
 
+    protected T GetViewModel<T>() where T : BaseViewModel
+    {
+        return _baseViewModel as T;
+    }
+
     protected virtual void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     { }
 }

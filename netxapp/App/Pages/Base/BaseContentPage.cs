@@ -21,7 +21,7 @@ public abstract class BasePage<TViewModel> : BaseContentPage
 
 public abstract class BaseContentPage : ContentPage
 {
-    private readonly BaseViewModel _baseViewModel;
+    protected readonly BaseViewModel _baseViewModel;
     private SpinnerPopup _popup;
 
     public BaseContentPage(BaseViewModel viewModel = null)
@@ -47,6 +47,11 @@ public abstract class BaseContentPage : ContentPage
             }
         }
         OnPropertyChanged(sender, e);
+    }
+
+    protected T GetViewModel<T>() where T : BaseViewModel
+    {
+        return _baseViewModel as T;
     }
 
     protected virtual void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
