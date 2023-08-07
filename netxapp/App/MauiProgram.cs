@@ -22,30 +22,37 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-		builder.Services.AddNetxPageViewModelService();
-        builder.Services.AddNetxService();
+		builder.Services.AddPageView();
+        builder.Services.AddCoreService();
         return builder.Build();
 	}
 
-	public static IServiceCollection AddNetxPageViewModelService(this IServiceCollection services)
+    /// <summary>
+    /// page & view dependency injection
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+	public static IServiceCollection AddPageView(this IServiceCollection services)
     {
-        services.AddContentPageViewModelService<WelcomePage, WelcomeViewModel>();
-        services.AddContentPageViewModelService<LoginPage, LoginViewModel>();
-
-        services.AddContentPageViewModelService<HomePage, HomeViewModel>();
-        services.AddContentPageViewModelService<SettingsPage, SettingViewModel>();
-
-        services.AddContentPageViewModelService<DemoPage, DemoViewModel>();
-        services.AddContentViewViewModelService<BluetoothView, BluetoothViewModel>();
-        services.AddContentViewViewModelService<WifiView, WifiViewModel>();        
-        services.AddContentViewViewModelService<ApiRequestView, ApiRequestViewModel>();
-        services.AddContentViewViewModelService<AllControlsView, AllControlsViewModel>();
-        services.AddContentPageViewModelService<DetailNavigatePage, DetailNavigateViewModel>();
-
+        services.AddPage<WelcomePage, WelcomeViewModel>()
+            .AddPage<LoginPage, LoginViewModel>()
+            .AddPage<HomePage, HomeViewModel>()
+            .AddPage<SettingsPage, SettingViewModel>()
+            .AddPage<DemoPage, DemoViewModel>()
+            .AddPage<DetailNavigatePage, DetailNavigateViewModel>();
+        services.AddView<BluetoothView, BluetoothViewModel>()
+            .AddView<WifiView, WifiViewModel>()
+            .AddView<ApiRequestView, ApiRequestViewModel>()
+            .AddView<AllControlsView, AllControlsViewModel>();
         return services;
     }
 
-	public static IServiceCollection AddNetxService(this IServiceCollection services)
+    /// <summary>
+    /// core service dependency injection
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+	public static IServiceCollection AddCoreService(this IServiceCollection services)
     {
         services.AddScoped<IRoutingService, ShellRoutingService>();
         services.AddScoped<IIdentityService, IdentityService>();
