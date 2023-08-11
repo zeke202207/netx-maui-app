@@ -2,12 +2,18 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NetX.AppCore.Pages.Template.Header">
-    <VerticalStackLayout>
-        <Image Source="pack://application:,,,/NetX.AppCore;component/Resources/Images/dotnet_bot1.png"></Image>
+    <HorizontalStackLayout>
+        <Image 
+            Source="{Binding HeaderInfo.Logo}" 
+            Aspect="AspectFit" 
+            WidthRequest="50" 
+            HeightRequest="50"
+            Margin="5"/>
         <Label 
+            Margin="10,0,0,0"
             TextColor="{StaticResource Zeke}"
-            Text="Welcome to .NET MAUI!"
+            Text="{Binding HeaderInfo.Title}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    </HorizontalStackLayout>
 </ContentView>

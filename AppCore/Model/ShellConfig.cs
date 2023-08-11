@@ -8,6 +8,10 @@ namespace NetX.AppCore.Model
 {
     public class ShellConfig
     {
+        public HeaderInfo HeaderInfo { get; set; }
+
+        public FooterInfo FooterInfo { get; set; }
+
         public List<NetXShellContent> Contents { get; set; }
 
         public NetXShellMenu Menu { get; set; }
@@ -18,6 +22,10 @@ namespace NetX.AppCore.Model
 
         public bool NavBarIsVisible { get; set; } = false;
     }
+
+    public record HeaderInfo(string Title, string Logo);
+
+    public record FooterInfo(string Copyright);
 
     public class NetXShellContent : BaseNetXShell
     {

@@ -115,8 +115,8 @@ public partial class NetXAppShell : Shell
         netxshell.SetValue(TabBarIsVisibleProperty, NetXApp.Device.Idiom() == DeviceIdiom.Phone ? true : false);
         netxshell.SetValue(NavBarIsVisibleProperty, config.NavBarIsVisible);
 
-        netxshell.FlyoutHeaderTemplate = config.Header ?? new DataTemplate(() => new Header());
-        netxshell.FlyoutFooterTemplate = config.Footer ?? new DataTemplate(() => new Footer());
+        netxshell.FlyoutHeaderTemplate = config.Header ?? new DataTemplate(() => new Header(config));
+        netxshell.FlyoutFooterTemplate = config.Footer ?? new DataTemplate(() => new Footer(config));
     }
 
     /// <summary>

@@ -2,9 +2,9 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NetX.AppCore.Pages.Template.Footer">
-    <VerticalStackLayout>
+    <VerticalStackLayout Margin="0,20,0,20">
         <Label 
-            Text="© 2023 NetX"
+            Text="{Binding FooterInfo.Copyright}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

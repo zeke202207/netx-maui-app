@@ -18,11 +18,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\dotnet_bot1.svg" />
+	  <None Remove="Resources\Images\logo.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Include="Resources\Images\dotnet_bot1.svg" />
+	  <MauiImage Include="Resources\Images\logo.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

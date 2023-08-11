@@ -15,6 +15,8 @@ namespace NetX.AppLauncher
             //MainPage = ShellFactory.CreateCustomShell(() => new AppShell());
             MainPage = ShellFactory.CreateDefaultShell(ShellType.NetXShell, p =>
             {
+                p.HeaderInfo = new AppCore.Model.HeaderInfo("netx maui", "logo.png");
+                p.FooterInfo = new AppCore.Model.FooterInfo("© zeke 2023");
                 p.Menu = new AppCore.Model.NetXShellMenu()
                 {
                     Order = 1,
