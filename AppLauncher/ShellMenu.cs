@@ -1,23 +1,23 @@
-﻿using NetX.AppCore;
+﻿using NetX.AppCore.Model;
 using NetX.AppLauncher.Pages;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NetX.AppLauncher
 {
-    public partial class App : Application
+    internal class ShellMenu
     {
-        private readonly MainPage _mainPage;
-
-        public App(MainPage mainPage)
+        //YOU CAN GET DATA FROM DATABASE OR CONFIG FILE
+        public static ShellConfig GetShellConfig()
         {
-            InitializeComponent();
-            _mainPage = mainPage;
-
-            //MainPage = ShellFactory.CreateCustomShell(() => new AppShell());
-            MainPage = ShellFactory.CreateDefaultShell(ShellType.NetXShell, p =>
+            return new ShellConfig()
             {
-                p.HeaderInfo = new AppCore.Model.HeaderInfo("netx maui", "logo.png");
-                p.FooterInfo = new AppCore.Model.FooterInfo("© zeke 2023");
-                p.Menu = new AppCore.Model.NetXShellMenu()
+                HeaderInfo = new AppCore.Model.HeaderInfo("netx maui", "logo.png"),
+                FooterInfo = new AppCore.Model.FooterInfo("© zeke 2023"),
+                Menu = new AppCore.Model.NetXShellMenu()
                 {
                     Order = 1,
                     Route = "zeketab",
@@ -42,21 +42,22 @@ namespace NetX.AppLauncher
                                //ContentTemplate = new DataTemplate(()=>new NewContent1())
                           },
                      }
-                };
+                },
 
-                p.Contents = new List<AppCore.Model.NetXShellContent>()
+                Contents = new List<AppCore.Model.NetXShellContent>()
                 {
                     new AppCore.Model.NetXShellContent()
                     {
                          Title = "Login",
                          Route ="zeke",
                          Icon = "tab_home.png",
-                         ContentTemplate = new DataTemplate(()=> _mainPage),
+                         ContentTemplate = new DataTemplate(()=> IPlatformApplication.Current.Services.GetService<MainPage>()),
                          Order = 0,
                          FlyoutItemIsVisible = false
                     }
-                };
-            });
+                },
+            };
         }
+
     }
 }

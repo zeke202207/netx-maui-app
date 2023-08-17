@@ -15,11 +15,10 @@ namespace NetX.AppCore
         /// <param name="shellType"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static Shell CreateDefaultShell(ShellType shellType, Action<ShellConfig> action)
+        public static Shell CreateDefaultShell(Func<ShellConfig> action)
         {
-            var config = new ShellConfig();
-            action?.Invoke(config);
-            return CreateShell(shellType, ()=> config, null);
+            var config = action?.Invoke();
+            return CreateShell(ShellType.NetXShell, ()=> config, null);
         }
 
         /// <summary>
