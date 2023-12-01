@@ -100,7 +100,6 @@ public partial class NetXAppShell : Shell
         Resources.MergedDictionaries.Add(new Resources.Styles.NetXColors());
         Resources.MergedDictionaries.Add(new Resources.Styles.NetXStyles());
         Application.Current.Resources.MergedDictionaries.Add(Resources);
-
         //Application.Current.Resources.
     }
 

@@ -7,7 +7,9 @@
 - 使用 Mac Catalyst 的 macOS 10.15 或更高版本。
 - 使用 Windows UI 库 (WinUI) 3 Windows 11和Windows 10版本 1809 或更高版本。
 
-  特别注意 MAUI <font color='red'><b>不支持</b></font> win7
+  特别注意 
+	- MAUI <font color='red'><b>不支持</b></font> win7
+	- MAUI <font color='red'><b>不支持</b></font> Linux
 
 
 ## 学习资源

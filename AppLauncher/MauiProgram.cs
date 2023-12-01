@@ -1,13 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Controls.StyleSheets;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.UI.Xaml.Markup;
 using NetX.AppCore;
 using NetX.AppCore.AppShells;
-using NetX.AppCore.Extentions;
-using NetX.AppCore.Routings;
-using NetX.AppLauncher.Pages;
-using System.Linq;
 
 namespace NetX.AppLauncher
 {
@@ -18,8 +11,8 @@ namespace NetX.AppLauncher
             var builder = NetXAppBuilder.Instance.CreateBuilder();
             return builder
                 .UseApp<NetXApplication>(
-                ()=> ShellFactory.CreateDefaultShell(() => ShellMenu.GetShellConfig()),
-                 new ResourceDictionary[2]{ new Resources.Styles.Colors(),new Resources.Styles.Styles() })
+                () => ShellFactory.CreateDefaultShell(() => ShellMenu.GetShellConfig()).InitTheme(Theme.Dark),
+                 new ResourceDictionary[2] { new Resources.Styles.Colors(), new Resources.Styles.Styles() })
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -31,7 +24,7 @@ namespace NetX.AppLauncher
                     logbuilder.AddDebug();
 #endif
                 })
-                .AddServices(s=>s.AddCoreServices())
+                .AddServices(s => s.AddCoreServices())
                 .Build();
         }
     }

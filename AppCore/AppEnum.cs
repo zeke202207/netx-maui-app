@@ -11,3 +11,9 @@ public enum ShellType
     NetXShell,
     CustomerShell
 }
+
+public enum Theme
+{
+    Light,
+    Dark
+}
