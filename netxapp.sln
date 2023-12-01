@@ -1,13 +1,13 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netxapp", "netxapp\App\netxapp.csproj", "{E070F7BA-8237-4D3C-96A9-35099B777EED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetX.AppLauncher", "AppLauncher\NetX.AppLauncher.csproj", "{DC4B9C8F-1406-4276-BEBB-EDDB28089657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetX.AppLauncher", "AppLauncher\NetX.AppLauncher.csproj", "{DC4B9C8F-1406-4276-BEBB-EDDB28089657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetX.AppCore", "AppCore\NetX.AppCore.csproj", "{39309867-E7A1-4D12-B2D4-2B7E193C1F19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetX.AppCore", "AppCore\NetX.AppCore.csproj", "{39309867-E7A1-4D12-B2D4-2B7E193C1F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
