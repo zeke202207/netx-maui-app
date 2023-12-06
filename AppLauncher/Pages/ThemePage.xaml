@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<custom:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetX.AppLauncher.ThemePage"
+                xmlns:custom="clr-namespace:NetX.AppCore;assembly=NetX.AppCore"
+             Title="home">
+    <VerticalStackLayout>
+        <Label 
+            Text="zeke page"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button 
+            Clicked="Button_Clicked"
+            Text="切换主题"
+            WidthRequest="80"
+            HeightRequest="30"/>
+        
+    </VerticalStackLayout>
+</custom:BaseContentPage>

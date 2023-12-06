@@ -24,12 +24,12 @@
     <Compile Update="AppShells\NetXAppShell.xaml.cs">
       <DependentUpon>NetXAppShell.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Styles\NetXColors.xaml.cs">
-      <DependentUpon>NetXColors.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <MauiXaml Update="AppShells\NetXAppShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\BaseContentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\Template\Footer.xaml">
@@ -38,10 +38,13 @@
     <MauiXaml Update="Pages\Template\Header.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Resources\Styles\NetXColors.xaml">
+    <MauiXaml Update="Resources\Styles\Button.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Resources\Styles\NetXStyles.xaml">
+    <MauiXaml Update="Resources\Styles\FlyoutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Resources\Styles\Label.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Resources\Theme\DarkTheme.xaml">

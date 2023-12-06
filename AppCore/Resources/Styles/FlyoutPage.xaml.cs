@@ -1,8 +1,8 @@
 namespace NetX.AppCore.Resources.Styles;
 
-public partial class NetXStyles : ResourceDictionary
+public partial class FlyoutPage : ResourceDictionary
 {
-	public NetXStyles()
+	public FlyoutPage()
 	{
 		InitializeComponent();
 	}

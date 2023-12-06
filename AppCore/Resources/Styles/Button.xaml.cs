@@ -1,8 +1,8 @@
 namespace NetX.AppCore.Resources.Styles;
 
-public partial class NetXColors : ResourceDictionary
+public partial class Button : ResourceDictionary
 {
-	public NetXColors()
+	public Button()
 	{
 		InitializeComponent();
 	}

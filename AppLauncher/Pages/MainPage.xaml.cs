@@ -3,9 +3,8 @@ using NetX.AppCore.Routings;
 
 namespace NetX.AppLauncher
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : BaseContentPage
     {
-        int count = 0;
         private readonly IRoutingService _routing;
 
         public MainPage(IRoutingService routing)
@@ -16,14 +15,7 @@ namespace NetX.AppLauncher
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            //SemanticScreenReader.Announce(CounterBtn.Text);
 
             _routing.NavigateTo("//zeketab/zeke-tab-0");
 

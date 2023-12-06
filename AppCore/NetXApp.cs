@@ -11,5 +11,13 @@ namespace NetX.AppCore
         public static AppDevice Device { get; } = new AppDevice();
 
         public static Shell Shell { get; internal set; }
+
+        public static Theme Theme { get; internal set; }
+
+        public static void RefreshTheme()
+        {
+            if (Application.Current.Resources.TryGetValue("WindowBackgroundColor", out var flyoutBackgroundColor))
+                Shell.SetValue(Shell.FlyoutBackgroundColorProperty, (Color)flyoutBackgroundColor);
+        }
     }
 }

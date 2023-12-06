@@ -10,6 +10,7 @@ namespace NetX.AppCore.Model
     {
         public DataTemplate ContentTemplate { get; set; }
 
+        [Obsolete("不在维护此属性")]
         public SearchHandler SearchHandler { get; set; }
     }
 }

@@ -21,6 +21,8 @@ namespace NetX.AppLauncher
                 {
                     Order = 1,
                     Route = "zeketab",
+                    MenuFlyout = FlyoutBehavior.Flyout,
+                    FlyoutWidth = 200,
                     Menus = new List<AppCore.Model.NetXShellMenuItem>()
                      {
                           new AppCore.Model.NetXShellMenuItem()
@@ -29,17 +31,16 @@ namespace NetX.AppLauncher
                                Route = "zeke-tab-0",
                                Title = "Home",
                                Icon = "tab_home.png",
-                               ContentTemplate = new DataTemplate(()=>new NewPage1()),
-                               SearchHandler = new TestSearchHandler(){ Placeholder="zeke" }
+                               ContentTemplate = new DataTemplate(()=>new ThemePage()),
+                               //SearchHandler = new TestSearchHandler(){ Placeholder="zeke" }
                           },
                           new AppCore.Model.NetXShellMenuItem()
                           {
                                Order = 1,
                                Route = "zeke-tab-1",
-                               Title = "SystemSetting",
+                               Title = "System Setting",
                                Icon = "tab_home.png",
-                               ContentTemplate = new DataTemplate(()=>new NewPage2())
-                               //ContentTemplate = new DataTemplate(()=>new NewContent1())
+                               ContentTemplate = new DataTemplate(()=>new ButtonPage())
                           },
                      }
                 },
@@ -58,6 +59,5 @@ namespace NetX.AppLauncher
                 },
             };
         }
-
     }
 }

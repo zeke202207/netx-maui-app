@@ -97,8 +97,9 @@ public partial class NetXAppShell : Shell
     /// </example>
     private void LoadCustomerResoures()
     {
-        Resources.MergedDictionaries.Add(new Resources.Styles.NetXColors());
-        Resources.MergedDictionaries.Add(new Resources.Styles.NetXStyles());
+        Resources.MergedDictionaries.Add(new Resources.Styles.Button());
+        Resources.MergedDictionaries.Add(new Resources.Styles.Label());
+        Resources.MergedDictionaries.Add(new Resources.Styles.FlyoutPage());
         Application.Current.Resources.MergedDictionaries.Add(Resources);
         //Application.Current.Resources.
     }
@@ -113,6 +114,8 @@ public partial class NetXAppShell : Shell
         netxshell.FlyoutHeaderBehavior = FlyoutHeaderBehavior.CollapseOnScroll;
         netxshell.SetValue(TabBarIsVisibleProperty, NetXApp.Device.Idiom() == DeviceIdiom.Phone ? true : false);
         netxshell.SetValue(NavBarIsVisibleProperty, config.NavBarIsVisible);
+        netxshell.SetValue(FlyoutWidthProperty, config.Menu.FlyoutWidth);
+        //netxshell.SetValue(FlyoutBackgroundColorProperty,Colors.Red);
 
         netxshell.FlyoutHeaderTemplate = config.Header ?? new DataTemplate(() => new Header(config));
         netxshell.FlyoutFooterTemplate = config.Footer ?? new DataTemplate(() => new Footer(config));
@@ -165,7 +168,8 @@ public partial class NetXAppShell : Shell
                     FlyoutItemIsVisible = item.FlyoutItemIsVisible,
                 };
                 tabBar.Items.Add(content);
-                InitSearchBar(content, item.SearchHandler);
+                if (null != item.SearchHandler)
+                    InitSearchBar(content, item.SearchHandler);
             }
         }
     }
@@ -197,7 +201,9 @@ public partial class NetXAppShell : Shell
                     FlyoutItemIsVisible = item.FlyoutItemIsVisible,
                 };
                 flyoutItem.Items.Add(content);
-                InitSearchBar(content, item.SearchHandler);
+                if (null != item.SearchHandler)
+                    InitSearchBar(content, item.SearchHandler);
+                Shell.SetFlyoutBehavior(content, config.Menu.MenuFlyout);
             }
         }
     }
