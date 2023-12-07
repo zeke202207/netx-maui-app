@@ -17,7 +17,10 @@ namespace NetX.AppCore
         public static void RefreshTheme()
         {
             if (Application.Current.Resources.TryGetValue("WindowBackgroundColor", out var flyoutBackgroundColor))
+            {
                 Shell.SetValue(Shell.FlyoutBackgroundColorProperty, (Color)flyoutBackgroundColor);
+                //Shell.SetValue(Shell.TabBarBackgroundColorProperty, (Color)flyoutBackgroundColor);
+            }
         }
     }
 }

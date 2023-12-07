@@ -6,6 +6,9 @@
 <!-- windows -->
     <Color x:Key="WindowBackgroundColor">#202020</Color>
     <Color x:Key="WindowFontColor">#FFFFFF</Color>
+    
+<!-- android -->
+    
 
  <!-- Button -->
     <!-- Button Background -->
