@@ -22,6 +22,7 @@ namespace NetX.AppLauncher.ViewModel
         }
 
         public ICommand RefreshCommand { get; private set; }
+        public ICommand PerformSearch { get; private set; }
 
         public ObservableCollection<Item> Items { get; private set; }
 
@@ -38,6 +39,12 @@ namespace NetX.AppLauncher.ViewModel
                 IsRefreshing = false;
             });
             AddItems();
+
+            PerformSearch = base.CreateAsyncCommand<string>(async text =>
+                       {
+                           Console.WriteLine($"Search for {text}");
+                           await Task.CompletedTask;
+                       });
         }
 
         void AddItems()
