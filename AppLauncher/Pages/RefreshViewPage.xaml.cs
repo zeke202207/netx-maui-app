@@ -1,11 +1,11 @@
 using NetX.AppCore;
 using NetX.AppLauncher.ViewModel;
 
-namespace NetX.AppLauncher.Controls;
+namespace NetX.AppLauncher.Pages;
 
-public partial class UCRefreshView : BaseContentView
+public partial class RefreshViewPage : BaseContentPage
 {
-	public UCRefreshView()
+	public RefreshViewPage()
 		:base(new RefreshViewViewModel())
 	{
 		InitializeComponent();

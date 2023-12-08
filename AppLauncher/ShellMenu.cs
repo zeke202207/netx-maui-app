@@ -42,6 +42,14 @@ namespace NetX.AppLauncher
                                Icon = "tab_home.png",
                                ContentTemplate = new DataTemplate(()=>new ControlPage())
                           },
+                          new AppCore.Model.NetXShellMenuItem()
+                          {
+                               Order = 2,
+                               Route = "zeke-tab-1",
+                               Title = "RefreshView",
+                               Icon = "tab_home.png",
+                               ContentTemplate = new DataTemplate(()=>new RefreshViewPage())
+                          },
                      }
                 },
 

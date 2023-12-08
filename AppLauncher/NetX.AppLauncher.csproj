@@ -57,10 +57,10 @@
     <MauiXaml Update="Controls\UCDesTitleView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Controls\UCRefreshView.xaml">
+    <MauiXaml Update="Pages\NewContent1.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Pages\NewContent1.xaml">
+    <MauiXaml Update="Pages\RefreshViewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\ThemePage.xaml">

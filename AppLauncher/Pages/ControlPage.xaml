@@ -16,8 +16,8 @@
 
             <Border>
                 <VerticalStackLayout>
-                    <uc:UCDesTitleView DesTitle="RefreshView"/>
-                    <uc:UCRefreshView/>
+                    <uc:UCDesTitleView DesTitle="xx"/>
+                    
                 </VerticalStackLayout>
             </Border>
 
