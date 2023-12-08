@@ -39,6 +39,9 @@
     <MauiXaml Update="Pages\BaseContentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+    <MauiXaml Update="Pages\BaseContentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Pages\Template\Footer.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
@@ -46,9 +49,6 @@
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Resources\Styles\ThemeColors.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Resources\Styles\ThemeFonts.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Resources\Styles\ThemeStyles.xaml">

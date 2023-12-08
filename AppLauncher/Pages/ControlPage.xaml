@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<custom:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetX.AppLauncher.ControlPage"
+             xmlns:custom="clr-namespace:NetX.AppCore;assembly=NetX.AppCore"
+             xmlns:uc="clr-namespace:NetX.AppLauncher.Controls"
+             Title="system setting">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border>
+                <VerticalStackLayout>
+                    <uc:UCDesTitleView DesTitle="按钮"/>
+                    <uc:UCButtonView />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="ImageButton"/>
+                    <Border HeightRequest="1" Background="Gray"></Border>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</custom:BaseContentPage>

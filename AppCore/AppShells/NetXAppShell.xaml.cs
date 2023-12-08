@@ -99,7 +99,6 @@ public partial class NetXAppShell : Shell
     {
         Resources.MergedDictionaries.Add(new NetX.AppCore.Resources.ThemeColors());
         Resources.MergedDictionaries.Add(new NetX.AppCore.Resources.ThemeStyles());
-        Resources.MergedDictionaries.Add(new NetX.AppCore.Resources.ThemeFonts());
         Application.Current.Resources.MergedDictionaries.Add(Resources);
     }
 
@@ -111,7 +110,9 @@ public partial class NetXAppShell : Shell
     {
         netxshell.FlyoutBehavior = FlyoutBehavior.Disabled;
         netxshell.FlyoutHeaderBehavior = FlyoutHeaderBehavior.CollapseOnScroll;
-        netxshell.SetValue(TabBarIsVisibleProperty, NetXApp.Device.Idiom() == DeviceIdiom.Phone ? true : false);
+        if(NetXApp.Device.Idiom() == DeviceIdiom.Desktop)
+            netxshell.SetValue(TabBarIsVisibleProperty, false);
+        //netxshell.SetValue(TabBarIsVisibleProperty, NetXApp.Device.Idiom() == DeviceIdiom.Phone ? true : false);
         netxshell.SetValue(NavBarIsVisibleProperty, config.NavBarIsVisible);
         netxshell.SetValue(FlyoutWidthProperty, config.Menu.FlyoutWidth);
         //netxshell.SetValue(FlyoutBackgroundColorProperty,Colors.Red);

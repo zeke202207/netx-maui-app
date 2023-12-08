@@ -1,5 +1,6 @@
 ﻿using NetX.AppCore;
 using NetX.AppCore.Routings;
+using NetX.AppLauncher.ViewModel;
 
 namespace NetX.AppLauncher
 {
@@ -8,6 +9,7 @@ namespace NetX.AppLauncher
         private readonly IRoutingService _routing;
 
         public MainPage(IRoutingService routing)
+            :base(new MainViewModel())
         {
             InitializeComponent();
             _routing = routing;

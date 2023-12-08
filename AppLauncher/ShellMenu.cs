@@ -40,7 +40,7 @@ namespace NetX.AppLauncher
                                Route = "zeke-tab-1",
                                Title = "System Setting",
                                Icon = "tab_home.png",
-                               ContentTemplate = new DataTemplate(()=>new ButtonPage())
+                               ContentTemplate = new DataTemplate(()=>new ControlPage())
                           },
                      }
                 },

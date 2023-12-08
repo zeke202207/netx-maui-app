@@ -45,18 +45,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Images\tab_home.svg" />
+    <None Remove="Resources\Images\test1.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppCore\NetX.AppCore.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <MauiXaml Update="Controls\UCButtonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Controls\UCDesTitleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Pages\NewContent1.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\ThemePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Pages\ButtonPage.xaml">
+    <MauiXaml Update="Pages\ControlPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>
@@ -66,8 +73,11 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Pages\ButtonPage.xaml.cs">
-      <DependentUpon>ButtonPage.xaml</DependentUpon>
+    <Compile Update="Controls\UCDesTitleView.xaml.cs">
+      <DependentUpon>UCDesTitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ControlPage.xaml.cs">
+      <DependentUpon>ControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\ThemePage.xaml.cs">
       <DependentUpon>ThemePage.xaml</DependentUpon>
