@@ -16,8 +16,8 @@
 
             <Border>
                 <VerticalStackLayout>
-                    <Label Text="ImageButton"/>
-                    <Border HeightRequest="1" Background="Gray"></Border>
+                    <uc:UCDesTitleView DesTitle="RefreshView"/>
+                    <uc:UCRefreshView/>
                 </VerticalStackLayout>
             </Border>
 
