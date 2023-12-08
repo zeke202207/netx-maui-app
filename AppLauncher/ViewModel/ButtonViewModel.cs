@@ -12,6 +12,26 @@ namespace NetX.AppLauncher.ViewModel
 {
     internal class ButtonViewModel : BaseViewModel
     {
+        private bool _defaultChecked = true;
+        public bool DefaultChecked
+        {
+            get => _defaultChecked;
+            set => base.SetProperty(ref _defaultChecked, value);
+        }
+
+        private string _selecedItem = string.Empty;
+        public string SelecedItem
+        {
+            get => _selecedItem;
+            set => base.SetProperty(ref _selecedItem, value);
+        }
+        private string _groupName = "zeke";
+        public string GroupName
+        {
+            get=> _groupName;
+            set=> base.SetProperty(ref _groupName, value);
+        }
+
         public ICommand NoParamCommand { get; private set; }
         public ICommand ParamCommand { get;private set; }
 

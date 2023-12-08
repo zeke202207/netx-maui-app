@@ -4,6 +4,7 @@
              x:Class="NetX.AppLauncher.Controls.UCButtonView"
              xmlns:bv="clr-namespace:NetX.AppCore;assembly=NetX.AppCore">
         <VerticalStackLayout>
+        <Label HorizontalTextAlignment="Center" BackgroundColor="LightPink">Button</Label>
             <Button
                 Text="可用"
                 IsEnabled="True"
@@ -35,7 +36,45 @@
                 ImageSource="Resource/Images/test1.png"
                 ContentLayout="Right,20"
                 WidthRequest="90"
-                HeightRequest="70"
+                HeightRequest="40"
                 Margin="0,5,0,5"/>
+            
+         
+        <Label HorizontalTextAlignment="Center" BackgroundColor="LightPink">ImageButton</Label>
+        <ImageButton
+                Source="Resource/Images/test1.png"
+                WidthRequest="90"
+                HeightRequest="70"
+                Margin="0,5,0,5"
+                Aspect="AspectFit">
+        </ImageButton>
+        <ImageButton
+            Source="Resource/Images/test1.png"
+            WidthRequest="90"
+            HeightRequest="70"
+            Margin="0,5,0,5"
+            Aspect="Center"
+            IsEnabled="False"/>
+
+
+        <Label HorizontalTextAlignment="Center" BackgroundColor="LightPink">RadioButton</Label>
+        <VerticalStackLayout 
+            RadioButtonGroup.SelectedValue="{Binding SelecedItem}"
+            RadioButtonGroup.GroupName="{Binding GroupName}"
+            >
+            <RadioButton Content="A" Value="0" GroupName="{Binding GroupName}" />
+            <RadioButton Content="B" Value="1" IsEnabled="False" GroupName="{Binding GroupName}"/>
+            <RadioButton Content="C" Value="2" IsChecked="{Binding DefaultChecked}" GroupName="{Binding GroupName}"/>
+            <Label Text="{Binding SelecedItem}" Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+        <RadioButton Content="D" Value="0" GroupName="zeke1"/>
+        <RadioButton Content="E" Value="1" GroupName="zeke1"/>
+        <!-- android no supported -->
+        <RadioButton>            
+            <RadioButton.Content>
+                <!-- <Image Source="Resource/Images/test1.png"/> -->
+                <Label Text="hello,zeke"/>
+            </RadioButton.Content>
+        </RadioButton>
     </VerticalStackLayout>
 </bv:BaseContentView>
