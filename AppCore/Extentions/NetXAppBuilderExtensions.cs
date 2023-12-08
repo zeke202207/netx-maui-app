@@ -26,11 +26,12 @@ namespace NetX.AppCore
             return builder;
         }
 
-        public static NetXAppBuilder ConfigureFonts(this NetXAppBuilder builder, Action<IFontCollection>? configureDelegate)
+        public static NetXAppBuilder ConfigureFonts(this NetXAppBuilder builder, Func<string> funConfig)
         {
-            if(null == configureDelegate)
-                return builder;
-            builder.MauiAppBuilder.ConfigureFonts(configureDelegate);
+            var strFont = AppCoreConst.C_DEFAULT_FONT;
+            if (null != funConfig)
+                strFont = funConfig.Invoke();
+            builder.MauiAppBuilder.ConfigureFonts(fonts => fonts.AddFont(strFont, AppCoreConst.C_FONT_ALIAS));
             return builder;
         }
 

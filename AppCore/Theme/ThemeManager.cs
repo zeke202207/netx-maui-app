@@ -16,25 +16,12 @@ namespace NetX.AppCore
 
         public void ChangeTheme(Theme theme)
         {
-            //设置UserAppTheme，可用于绑定
             Application.Current.UserAppTheme = theme switch
             {
                 Theme.Light => AppTheme.Light,
                 Theme.Dark => AppTheme.Dark,
                 _ => throw new NotImplementedException("为实现的主题")
             };
-            ResourceDictionary themeResource = theme switch
-            {
-                Theme.Light => new Resources.Theme.LightTheme(),
-                Theme.Dark => new Resources.Theme.DarkTheme(),
-                _ => throw new NotImplementedException("为实现的主题")
-            };
-            var themeItem = Application.Current.Resources.MergedDictionaries.FirstOrDefault(p => p.GetType() == theme.GetType());
-            if (null != themeItem)
-                Application.Current.Resources.MergedDictionaries.Remove(themeItem);
-            Application.Current.Resources.MergedDictionaries.Add(themeResource);
-            NetXApp.Theme = theme;
-            NetXApp.RefreshTheme();
         }
     }
 }

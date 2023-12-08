@@ -97,11 +97,10 @@ public partial class NetXAppShell : Shell
     /// </example>
     private void LoadCustomerResoures()
     {
-        Resources.MergedDictionaries.Add(new Resources.Styles.Button());
-        Resources.MergedDictionaries.Add(new Resources.Styles.Label());
-        Resources.MergedDictionaries.Add(new Resources.Styles.FlyoutPage());
+        Resources.MergedDictionaries.Add(new NetX.AppCore.Resources.ThemeColors());
+        Resources.MergedDictionaries.Add(new NetX.AppCore.Resources.ThemeStyles());
+        Resources.MergedDictionaries.Add(new NetX.AppCore.Resources.ThemeFonts());
         Application.Current.Resources.MergedDictionaries.Add(Resources);
-        //Application.Current.Resources.
     }
 
     /// <summary>
@@ -136,7 +135,7 @@ public partial class NetXAppShell : Shell
                    Title = item.Title,
                    Route = item.Route,
                    Icon = item.Icon,
-                   FlyoutItemIsVisible = item.FlyoutItemIsVisible
+                   FlyoutItemIsVisible = item.FlyoutItemIsVisible,
                });
         }
     }

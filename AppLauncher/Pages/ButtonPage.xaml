@@ -11,13 +11,13 @@
             HorizontalOptions="Center" />
 
         <Button 
-            Text="Enabled" 
+            Text="可用" 
             IsEnabled="True"
             CornerRadius="20"
             />
         
         <Button 
-            Text="Disabled" 
+            Text="禁用" 
             IsEnabled="False"
             />
         

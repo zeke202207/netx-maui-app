@@ -15,6 +15,7 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\Fonts\OpenSans-Regular.ttf" />
     <None Remove="Resources\Images\logo.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -23,6 +24,12 @@
   <ItemGroup>
     <Compile Update="AppShells\NetXAppShell.xaml.cs">
       <DependentUpon>NetXAppShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Styles\ThemeStyles.xaml.cs">
+      <DependentUpon>ThemeStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Styles\ThemeColors.xaml.cs">
+      <DependentUpon>ThemeColors.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -38,19 +45,13 @@
     <MauiXaml Update="Pages\Template\Header.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Resources\Styles\Button.xaml">
+    <MauiXaml Update="Resources\Styles\ThemeColors.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Resources\Styles\FlyoutPage.xaml">
+    <MauiXaml Update="Resources\Styles\ThemeFonts.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Resources\Styles\Label.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Resources\Theme\DarkTheme.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Resources\Theme\LightTheme.xaml">
+    <MauiXaml Update="Resources\Styles\ThemeStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>

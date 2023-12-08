@@ -13,11 +13,7 @@ namespace NetX.AppLauncher
                 .UseApp<NetXApplication>(
                 () => ShellFactory.CreateDefaultShell(() => ShellMenu.GetShellConfig()).InitTheme(Theme.Dark),
                  new ResourceDictionary[2] { new Resources.Styles.Colors(), new Resources.Styles.Styles() })
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                })
+                .ConfigureFonts(() => "OpenSans-Semibold.ttf")
                 .AddLog(logbuilder =>
                 {
 #if DEBUG
