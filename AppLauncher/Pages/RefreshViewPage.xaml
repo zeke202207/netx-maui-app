@@ -20,16 +20,19 @@
         <Label Text="RefreshView Demo"
             FontAttributes="Bold"
             HorizontalOptions="Center" />
-        <Label Text="Pull the items down to refresh the ScrollView." />
-        <Label Text="{Binding Items.Count, StringFormat='Number of items: {0}'}" />
-
+        
+        <!-- search bar -->
         <SearchBar 
             x:Name="searchbox"
             SearchCommand="{Binding PerformSearch}" 
             SearchCommandParameter="{Binding Source={x:Reference searchbox},Path=Text}" 
             Placeholder="zeke" 
+            Text="hello"
             PlaceholderColor="AliceBlue"/>
-        
+
+        <!-- refresh view -->
+        <Label Text="Pull the items down to refresh the ScrollView." />
+        <Label Text="{Binding Items.Count, StringFormat='Number of items: {0}'}" />
         <RefreshView IsRefreshing="{Binding IsRefreshing}"
                   RefreshColor="Teal"
                   Command="{Binding RefreshCommand}">
@@ -44,5 +47,39 @@
                 </FlexLayout>
             </ScrollView>
         </RefreshView>
+
+        <!-- SwipeView  -->
+        <SwipeView>
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItem Text="Archive"
+                           IconImageSource="Resource/Images/test1.png"
+                           BackgroundColor="LightGreen"/>
+                    <SwipeItem Text="Flag"
+                           IconImageSource="Resource/Images/test1.png"
+                           BackgroundColor="LightBlue"/>
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            <SwipeView.RightItems>
+                <SwipeItems>
+                    <SwipeItem Text="Delete"
+                           IconImageSource="Resource/Images/test1.png"
+                           BackgroundColor="LightPink"
+                           Command="{Binding SwipeCommand}"
+                           CommandParameter="{Binding Source={x:Reference zeke} ,Path=Text}"/>
+                </SwipeItems>
+            </SwipeView.RightItems>
+            <SwipeView.Content>
+                <StackLayout Padding="10">
+                    <Label x:Name="zeke" Text="Swipe left or right on the box below."
+                       HorizontalOptions="Center" />
+                    <BoxView Color="LightGray"
+                         HeightRequest="100"
+                         WidthRequest="100" />
+                </StackLayout>
+            </SwipeView.Content>
+        </SwipeView>
+
     </StackLayout>
+    
 </custom:BaseContentPage>

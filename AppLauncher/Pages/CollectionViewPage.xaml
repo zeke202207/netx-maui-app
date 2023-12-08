@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<custom:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetX.AppLauncher.Pages.CollectionViewPage"
+    xmlns:custom="clr-namespace:NetX.AppCore;assembly=NetX.AppCore"
+             Title="CollectionViewPage">
+
+    <!-- CollectionView -->
+    <!-- 支持 refresh view-->
+    <RefreshView IsRefreshing="{Binding IsRefreshing}"
+             Command="{Binding RefreshCommand}">
+    
+        <CollectionView x:Name="collectionView" ItemsSource="{Binding Monkeys}"
+                         RemainingItemsThreshold="5"
+                         RemainingItemsThresholdReached="OnCollectionViewRemainingItemsThresholdReached">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.RowSpan="2"
+                           Source="{Binding ImageUrl}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                        <SwipeView Grid.Column="1">
+                            <SwipeView.LeftItems>
+                                <SwipeItem Text="Zeke"
+                                           IconImageSource="Resource/Images/test1.png"
+                                           BackgroundColor="LightPink"
+                                           Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.DeleteCommand}"
+                                           CommandParameter="{Binding Source={x:Reference a}, Path=Text}"/>
+                            </SwipeView.LeftItems>
+                            <SwipeView.Content>
+                                <Label x:Name="a"
+                                       Text="{Binding Name}"
+                                       FontAttributes="Bold" />
+                            </SwipeView.Content>
+                        </SwipeView>
+                        <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Location}"
+                           FontAttributes="Italic"
+                           VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</custom:BaseContentPage>

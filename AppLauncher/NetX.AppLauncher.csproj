@@ -57,6 +57,9 @@
     <MauiXaml Update="Controls\UCDesTitleView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+    <MauiXaml Update="Pages\CollectionViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Pages\NewContent1.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>

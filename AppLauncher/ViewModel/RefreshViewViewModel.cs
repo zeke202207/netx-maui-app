@@ -11,7 +11,9 @@ namespace NetX.AppLauncher.ViewModel
 {
     public class RefreshViewViewModel : BaseViewModel
     {
-        readonly Random random;
+        #region RefreshViewViewModel
+
+        readonly Random random =new Random();
         int itemNumber = 1;
 
         private bool _isRefreshing = false;
@@ -21,31 +23,9 @@ namespace NetX.AppLauncher.ViewModel
             set => base.SetProperty(ref _isRefreshing, value);
         }
 
-        public ICommand RefreshCommand { get; private set; }
-        public ICommand PerformSearch { get; private set; }
-
         public ObservableCollection<Item> Items { get; private set; }
 
-        public RefreshViewViewModel()
-        {
-            random = new Random();
-            Items = new ObservableCollection<Item>();
-
-            RefreshCommand = base.CreateAsyncCommand(async () =>
-            {
-                IsRefreshing = true;
-                await Task.Delay(5000);
-                AddItems();
-                IsRefreshing = false;
-            });
-            AddItems();
-
-            PerformSearch = base.CreateAsyncCommand<string>(async text =>
-                       {
-                           Console.WriteLine($"Search for {text}");
-                           await Task.CompletedTask;
-                       });
-        }
+        public ICommand RefreshCommand { get; private set; }
 
         void AddItems()
         {
@@ -58,6 +38,60 @@ namespace NetX.AppLauncher.ViewModel
                 });
             }
         }
+
+        void Ini1()
+        {
+            Items = new ObservableCollection<Item>();
+
+            RefreshCommand = base.CreateAsyncCommand(async () =>
+            {
+                IsRefreshing = true;
+                await Task.Delay(5000);
+                AddItems();
+                IsRefreshing = false;
+            });
+            AddItems();
+        }
+
+        #endregion
+
+        #region SwipeViewViewModel
+
+        public ICommand SwipeCommand { get; private set; }
+
+        void Init2()
+        {
+            PerformSearch = base.CreateAsyncCommand<string>(async text =>
+            {
+                Console.WriteLine($"Search for {text}");
+                await Task.CompletedTask;
+            });
+
+        }
+
+        #endregion
+
+        #region SearchHandlerViewModel
+
+        public ICommand PerformSearch { get; private set; }
+
+        void Init3()
+        {
+            SwipeCommand = base.CreateAsyncCommand<string>(async text =>
+            {
+
+                await Task.CompletedTask;
+            });
+        }
+
+        #endregion
+
+       public RefreshViewViewModel()
+        {
+            Ini1();
+            Init2();
+            Init3();
+        }
     }
 
     public class Item
@@ -65,4 +99,5 @@ namespace NetX.AppLauncher.ViewModel
         public string Name { get; set; }
         public Color Color { get; set; }
     }
+
 }
